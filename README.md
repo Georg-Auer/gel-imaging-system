@@ -10,6 +10,7 @@ open source gel imager
 
 ![Imager](https://github.com/Georg-Auer/gel-imaging-system/blob/main/imager.jpeg)
 ![Imaging Workstation](https://github.com/Georg-Auer/gel-imaging-system/blob/main/imager-station.jpeg)
+![First test image](https://github.com/Georg-Auer/gel-imaging-system/blob/main/gel_exposure100000_2021_07_23_14_11.jpg)
 
 - [x] Design
 - [x] Laser cutting
