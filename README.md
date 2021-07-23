@@ -6,8 +6,8 @@ open source gel imager
 * The image is then taken with a shell script that uses raspistill.
 * The image can be analysed via ImageJ or, for instance, an python opencv solution.
 
-![Imager](imager.jpg)
-![Imaging Workstation](imager-station.jpg)
+![Imager](https://github.com/Georg-Auer/gel-imaging-system/blob/main/imager.jpeg)
+![Imaging Workstation](https://github.com/Georg-Auer/gel-imaging-system/blob/main/imager-station.jpeg)
 
 - [x] Design
 - [x] Laser cutting
