@@ -14,7 +14,7 @@ open source gel imager
 - [x] Design
 - [x] Laser cutting
 - [x] Imaging script 
-- [ ] Image evaluation with Fiji[^2]
+- [x] Image evaluation with Fiji[^2]
 
 [^1]: https://www.minipcr.com/product/bluebox-dna-transilluminator/
 [^2]: https://lukemiller.org/index.php/2010/11/analyzing-gels-and-western-blots-with-image-j/
