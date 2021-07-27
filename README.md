@@ -6,13 +6,15 @@ open source gel imager
 * The image is then taken with a shell script that uses raspistill.
 * The image can be analysed via ImageJ or, for instance, an python opencv solution.
 
-[^1]: https://www.minipcr.com/product/bluebox-dna-transilluminator/
 
 ![Imager](https://github.com/Georg-Auer/gel-imaging-system/blob/main/imager.jpeg)
 ![Imaging Workstation](https://github.com/Georg-Auer/gel-imaging-system/blob/main/imager-station.jpeg)
-![First test image](https://github.com/Georg-Auer/gel-imaging-system/blob/main/gel_exposure100000_2021_07_23_14_11.jpg)
+![First test image](https://github.com/Georg-Auer/gel-imaging-system/blob/main/gel_exposure1000000_2021_07_26_16_35.jpg)
 
 - [x] Design
 - [x] Laser cutting
 - [x] Imaging script 
-- [ ] System evaluation
+- [ ] Image evaluation with Fiji[^2]
+
+[^1]: https://www.minipcr.com/product/bluebox-dna-transilluminator/
+[^2]: https://lukemiller.org/index.php/2010/11/analyzing-gels-and-western-blots-with-image-j/
