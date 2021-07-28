@@ -1,7 +1,7 @@
 from picamraw import PiRawBayer, PiCameraVersion
 
 raw_bayer = PiRawBayer(
-    filepath='gel_exposure1000000_2021_07_27_12_40_+raw.png',  # A JPEG+RAW file, e.g. an image captured using raspistill with the "--raw" flag
+    filepath='testraw.jpg',  # A JPEG+RAW file, e.g. an image captured using raspistill with the "--raw" flag
     camera_version=PiCameraVersion.V2,
     sensor_mode=0
 )
