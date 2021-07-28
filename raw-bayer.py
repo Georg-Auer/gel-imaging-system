@@ -1,3 +1,5 @@
+# https://picamera.readthedocs.io/en/release-1.13/recipes2.html#raw-bayer-data-captures
+
 from __future__ import (
     unicode_literals,
     absolute_import,
@@ -19,7 +21,8 @@ with picamera.PiCamera() as camera:
     # Capture the image, including the Bayer data
     camera.capture(stream, format='jpeg', bayer=True)
     ver = {
-        'RP_ov5647': 1,
+        # 'RP_ov5647': 1,
+        'RP_imx477': 1,        
         'RP_imx219': 2,
         }[camera.exif_tags['IFD0.Model']]
 
