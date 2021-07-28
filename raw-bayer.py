@@ -21,8 +21,7 @@ with picamera.PiCamera() as camera:
     # Capture the image, including the Bayer data
     camera.capture(stream, format='jpeg', bayer=True)
     ver = {
-        # 'RP_ov5647': 1,
-        'RP_imx477': 1,        
+        'RP_ov5647': 1,
         'RP_imx219': 2,
         }[camera.exif_tags['IFD0.Model']]
 
