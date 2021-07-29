@@ -147,11 +147,13 @@ blue = rgb[0::2, 1::2, 2]
 # print(f"green1: {rgb[0::2, 0::2, 1]}")
 # print(f"green1: {rgb[1::2, 1::2, 1]}")
 # print(f"blue: {rgb[0::2, 1::2, 2]}")
-print(red)
-print(green1)
-print(green2)
-print(blue)
-
+print(f"red: {red}")
+print(f"green1: {green1}")
+print(f"green2: {green2}")
+print(f"blue: {blue}")
+print(header)
+print(header._fields_)
+print(header.bayer_order)
 
 import matplotlib
 
