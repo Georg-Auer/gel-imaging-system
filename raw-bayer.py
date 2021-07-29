@@ -80,7 +80,8 @@ header = BroadcomRawHeader.from_buffer_copy(
 # maybe this has to do something with it:
 # https://github.com/waveform80/picamera/issues/133
 data = data[32768:]
-data = np.fromstring(data, dtype=np.uint8)
+# data = np.fromstring(data, dtype=np.uint8) # deprecated
+data = np.frombuffer(data, dtype=np.uint8)
 
 # For the V1 module, the data consists of 1952 rows of 3264 bytes of data.
 # The last 8 rows of data are unused (they only exist because the maximum
