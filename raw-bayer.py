@@ -203,7 +203,7 @@ import matplotlib.pyplot as plt
 # plt.show()
 
 
-plt.figure()
+# plt.figure()
 #subplot(r,c) provide the no. of rows and columns
 f, axarr = plt.subplots(2,2) 
 
@@ -215,13 +215,13 @@ f, axarr = plt.subplots(2,2)
 # plt.show()
 
 axarr[0, 0].imshow(blue)
-axarr[0, 0].set_title('Axis [0, 0]')
+axarr[0, 0].set_title('blue')
 axarr[0, 1].imshow(green1)
-axarr[0, 1].set_title('Axis [0, 1]')
+axarr[0, 1].set_title('green1')
 axarr[1, 0].imshow(green2)
-axarr[1, 0].set_title('Axis [1, 0]')
+axarr[1, 0].set_title('green2')
 axarr[1, 1].imshow(red)
-axarr[1, 1].set_title('Axis [1, 1]')
+axarr[1, 1].set_title('red')
 plt.show()
 
 
