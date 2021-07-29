@@ -24,6 +24,7 @@ with picamera.PiCamera() as camera:
     # camera.framerate = 5
     # camera.start_preview()
     camera.shutter_speed = camera.exposure_speed
+    print(camera.shutter_speed)
     camera.exposure_mode = 'off'
     g = camera.awb_gains
     camera.awb_mode = 'off'
