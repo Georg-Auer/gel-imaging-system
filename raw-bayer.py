@@ -153,7 +153,9 @@ print(f"green2: {green2}")
 print(f"blue: {blue}")
 print(header)
 print(header._fields_)
-print(header.bayer_order)
+print(header.width)
+print(header.height)
+print(f"bayer order: {header.bayer_order}")
 
 import matplotlib
 
