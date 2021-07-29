@@ -36,7 +36,7 @@ with picamera.PiCamera() as camera:
     camera.awb_gains = g
 
     # Let the camera warm up for a couple of seconds
-    time.sleep(2)
+    time.sleep(10)
     # Capture the image, including the Bayer data
     camera.capture(stream, format='jpeg', bayer=True)
     ver = {
