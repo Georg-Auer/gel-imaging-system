@@ -190,11 +190,30 @@ print(np.sum(red, axis=0))
 
 import matplotlib.pyplot as plt
 
-plt.imshow(blue, interpolation='none')
-plt.imshow(green1, interpolation='none')
-plt.imshow(green2, interpolation='none')
-plt.imshow(red, interpolation='none')
+
+# fig = plt.figure(figsize=(2, 2))
+# fig.add_subplot(0, 0, i)
+# plt.imshow(blue, interpolation='none')
+# fig.add_subplot(0, 1, i)
+# plt.imshow(green1, interpolation='none')
+# fig.add_subplot(1, 0, i)
+# plt.imshow(green2, interpolation='none')
+# fig.add_subplot(1, 1, i)
+# plt.imshow(red, interpolation='none')
+# plt.show()
+
+
+plt.figure()
+#subplot(r,c) provide the no. of rows and columns
+f, axarr = plt.subplots(4,1) 
+
+# use the created array to output your multiple images. In this case I have stacked 4 images vertically
+axarr[0].imshow(blue)
+axarr[1].imshow(green1)
+axarr[2].imshow(green2)
+axarr[3].imshow(red)
 plt.show()
+
 
 # At this point we now have the raw Bayer data with the correct values
 # and colors but the data still requires de-mosaicing and
