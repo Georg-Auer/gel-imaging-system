@@ -27,7 +27,7 @@ with picamera.PiCamera() as camera:
     print(camera.shutter_speed)
 
     # camera.shutter_speed = camera.exposure_speed
-    camera.shutter_speed = 100
+    camera.shutter_speed = 100000
 
     print(camera.shutter_speed)
     camera.exposure_mode = 'off'
@@ -171,7 +171,6 @@ print(f"red: {red}")
 print(f"green1: {green1}")
 print(f"green2: {green2}")
 print(f"blue: {blue}")
-print(header)
 print(header._fields_)
 print(header.width)
 print(header.height)
