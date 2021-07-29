@@ -26,7 +26,9 @@ with picamera.PiCamera() as camera:
     print(camera.exposure_speed)
     print(camera.shutter_speed)
 
-    camera.shutter_speed = camera.exposure_speed
+    # camera.shutter_speed = camera.exposure_speed
+    camera.shutter_speed = 1000
+
     print(camera.shutter_speed)
     camera.exposure_mode = 'off'
     g = camera.awb_gains
