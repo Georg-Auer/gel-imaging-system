@@ -190,13 +190,13 @@ import matplotlib.pyplot as plt
 
 f, axarr = plt.subplots(2,2) 
 
-axarr[0, 0].imshow(blue, cmap='gray', vmin=0, vmax=1023)
+axarr[0, 0].imshow(blue, cmap='gray', vmin=0, vmax=1023,interpolation='none')
 axarr[0, 0].set_title('blue')
-axarr[0, 1].imshow(green1, cmap='gray', vmin=0, vmax=1023)
+axarr[0, 1].imshow(green1, cmap='gray', vmin=0, vmax=1023,interpolation='none')
 axarr[0, 1].set_title('green1')
-axarr[1, 0].imshow(green2, cmap='gray', vmin=0, vmax=1023)
+axarr[1, 0].imshow(green2, cmap='gray', vmin=0, vmax=1023,interpolation='none')
 axarr[1, 0].set_title('green2')
-axarr[1, 1].imshow(red, cmap='gray', vmin=0, vmax=1023)
+axarr[1, 1].imshow(red, cmap='gray', vmin=0, vmax=1023,interpolation='none')
 axarr[1, 1].set_title('red')
 
 # axarr[0, 0].imshow(green1, cmap='gray', vmin=0, vmax=1023)
