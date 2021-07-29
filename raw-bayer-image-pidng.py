@@ -9,8 +9,8 @@ with picamera.PiCamera(sensor_mode=2) as camera:
 
     stream = BytesIO()
 
-    # camera.resolution = (2592,1944) # sensor mode 2 on imx477 is 3280,2464
-    camera.resolution = (3280,2464)
+    camera.resolution = (2592,1944) # sensor mode 2 on imx477 is 3280,2464
+    # camera.resolution = (3280,2464)
     camera.iso = 100
     time.sleep(2)
 

@@ -175,7 +175,7 @@ print(header._fields_)
 print(header.width)
 print(header.height)
 print(f"bayer order: {header.bayer_order}")
-
+np.sum(blue, axis=0)
 import matplotlib
 
 # At this point we now have the raw Bayer data with the correct values
