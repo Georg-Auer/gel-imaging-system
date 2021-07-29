@@ -27,7 +27,7 @@ with picamera.PiCamera() as camera:
     print(camera.shutter_speed)
 
     # camera.shutter_speed = camera.exposure_speed
-    camera.shutter_speed = 1000
+    camera.shutter_speed = 100
 
     print(camera.shutter_speed)
     camera.exposure_mode = 'off'
@@ -36,7 +36,7 @@ with picamera.PiCamera() as camera:
     camera.awb_gains = g
 
     # Let the camera warm up for a couple of seconds
-    time.sleep(10)
+    time.sleep(2)
     # Capture the image, including the Bayer data
     camera.capture(stream, format='jpeg', bayer=True)
     ver = {
