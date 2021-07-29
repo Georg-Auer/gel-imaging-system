@@ -205,7 +205,7 @@ import matplotlib.pyplot as plt
 
 plt.figure()
 #subplot(r,c) provide the no. of rows and columns
-f, axarr = plt.subplots(4,1) 
+f, axarr = plt.subplots(2,2) 
 
 # use the created array to output your multiple images. In this case I have stacked 4 images vertically
 axarr[0].imshow(blue)
