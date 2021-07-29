@@ -23,6 +23,9 @@ with picamera.PiCamera() as camera:
     time.sleep(2)
     # camera.framerate = 5
     # camera.start_preview()
+    print(camera.exposure_speed)
+    print(camera.shutter_speed)
+
     camera.shutter_speed = camera.exposure_speed
     print(camera.shutter_speed)
     camera.exposure_mode = 'off'
