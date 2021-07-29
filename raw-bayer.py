@@ -18,22 +18,22 @@ stream = io.BytesIO()
 with picamera.PiCamera() as camera:
 
     # optional: set camera parameters
-    camera.resolution = (2592,1944)
-    camera.iso = 100
-    time.sleep(2)
-    # camera.framerate = 5
-    # camera.start_preview()
-    print(camera.exposure_speed)
-    print(camera.shutter_speed)
+    # camera.resolution = (2592,1944)
+    # camera.iso = 100
+    # time.sleep(2)
+    # # camera.framerate = 5
+    # # camera.start_preview()
+    # print(camera.exposure_speed)
+    # print(camera.shutter_speed)
 
-    # camera.shutter_speed = camera.exposure_speed
-    camera.shutter_speed = 100000
+    # # camera.shutter_speed = camera.exposure_speed
+    # camera.shutter_speed = 100000
 
-    print(camera.shutter_speed)
-    camera.exposure_mode = 'off'
-    g = camera.awb_gains
-    camera.awb_mode = 'off'
-    camera.awb_gains = g
+    # print(camera.shutter_speed)
+    # camera.exposure_mode = 'off'
+    # g = camera.awb_gains
+    # camera.awb_mode = 'off'
+    # camera.awb_gains = g
 
     # Let the camera warm up for a couple of seconds
     time.sleep(2)
