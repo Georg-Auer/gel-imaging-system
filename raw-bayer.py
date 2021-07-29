@@ -37,8 +37,35 @@ offset = {
     3: 18711040,
     4: 4751360, #not sure for which camera this is
     }[ver]
+# data = stream.getvalue()[-offset:]
+# print(data)
+
+
 data = stream.getvalue()[-offset:]
-assert data[:4] == 'BRCM'
+assert data[:4] == 'BRCM'.encode("ascii")
+
+import ctypes
+class BroadcomRawHeader(ctypes.Structure):
+    _fields_ = [
+        ('name',          ctypes.c_char * 32),
+        ('width',         ctypes.c_uint16),
+        ('height',        ctypes.c_uint16),
+        ('padding_right', ctypes.c_uint16),
+        ('padding_down',  ctypes.c_uint16),
+        ('dummy',         ctypes.c_uint32 * 6),
+        ('transform',     ctypes.c_uint16),
+        ('format',        ctypes.c_uint16),
+        ('bayer_order',   ctypes.c_uint8),
+        ('bayer_format',  ctypes.c_uint8),
+    ]
+
+header = BroadcomRawHeader.from_buffer_copy(
+    data[176:176 + ctypes.sizeof(BroadcomRawHeader)])
+
+
+# assert data[:4] == 'BRCM' # not sure what BRCM is?
+# maybe this has to do something with it:
+# https://github.com/waveform80/picamera/issues/133
 data = data[32768:]
 data = np.fromstring(data, dtype=np.uint8)
 
@@ -74,6 +101,7 @@ data = data.reshape(reshape)[:crop[0], :crop[1]]
 # then remove the columns containing the packed bits
 
 # modified with https://github.com/schoolpost/PiDNG/blob/master/pidng/core.py
+# for imx477 compatibility
 if ver < 3:
     data = data.astype(np.uint16) << 2
     for byte in range(4):
@@ -110,10 +138,22 @@ rgb[0::2, 0::2, 1] = data[0::2, 0::2] # Green
 rgb[1::2, 1::2, 1] = data[1::2, 1::2] # Green
 rgb[0::2, 1::2, 2] = data[0::2, 1::2] # Blue
 
-print(f"red: {rgb[1::2, 0::2, 0]}")
-print(f"green1: {rgb[0::2, 0::2, 1]}")
-print(f"green1: {rgb[1::2, 1::2, 1]}")
-print(f"blue: {rgb[0::2, 1::2, 2]}")
+red = rgb[1::2, 0::2, 0]
+green1 = rgb[0::2, 0::2, 1]
+green2 = rgb[1::2, 1::2, 1]
+blue = rgb[0::2, 1::2, 2]
+
+# print(f"red: {rgb[1::2, 0::2, 0]}")
+# print(f"green1: {rgb[0::2, 0::2, 1]}")
+# print(f"green1: {rgb[1::2, 1::2, 1]}")
+# print(f"blue: {rgb[0::2, 1::2, 2]}")
+print(red)
+print(green1)
+print(green2)
+print(blue)
+
+
+import matplotlib
 
 # At this point we now have the raw Bayer data with the correct values
 # and colors but the data still requires de-mosaicing and
@@ -124,13 +164,13 @@ print(f"blue: {rgb[0::2, 1::2, 2]}")
 # surrounding it. The weighting is provided by a byte representation of
 # the Bayer filter which we construct first:
 
-bayer = np.zeros(rgb.shape, dtype=np.uint8)
-bayer[1::2, 0::2, 0] = 1 # Red
-bayer[0::2, 0::2, 1] = 1 # Green
-bayer[1::2, 1::2, 1] = 1 # Green
-bayer[0::2, 1::2, 2] = 1 # Blue
+# bayer = np.zeros(rgb.shape, dtype=np.uint8)
+# bayer[1::2, 0::2, 0] = 1 # Red
+# bayer[0::2, 0::2, 1] = 1 # Green
+# bayer[1::2, 1::2, 1] = 1 # Green
+# bayer[0::2, 1::2, 2] = 1 # Blue
 
-print(bayer)
+# print(bayer)
 
 
 # output = (output >> 2).astype(np.uint8)
