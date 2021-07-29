@@ -208,10 +208,20 @@ plt.figure()
 f, axarr = plt.subplots(2,2) 
 
 # use the created array to output your multiple images. In this case I have stacked 4 images vertically
-axarr[0].imshow(blue)
-axarr[1].imshow(green1)
-axarr[2].imshow(green2)
-axarr[3].imshow(red)
+# axarr[0].imshow(blue)
+# axarr[1].imshow(green1)
+# axarr[2].imshow(green2)
+# axarr[3].imshow(red)
+# plt.show()
+
+axarr[0, 0].imshow(blue)
+axarr[0, 0].set_title('Axis [0, 0]')
+axarr[0, 1].imshow(green1)
+axarr[0, 1].set_title('Axis [0, 1]')
+axarr[1, 0].imshow(green2)
+axarr[1, 0].set_title('Axis [1, 0]')
+axarr[1, 1].imshow(red)
+axarr[1, 1].set_title('Axis [1, 1]')
 plt.show()
 
 
