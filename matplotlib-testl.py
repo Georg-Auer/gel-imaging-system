@@ -13,3 +13,7 @@ plt.colorbar()
 plt.show()
 
 plt.savefig("out.png")
+
+
+# sudo apt install --upgrade python3-gi-cairo
+# sudo apt install --upgrade python-gobject-cairo #maybe also this

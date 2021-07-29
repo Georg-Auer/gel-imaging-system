@@ -191,6 +191,9 @@ print(np.sum(red, axis=0))
 import matplotlib.pyplot as plt
 
 plt.imshow(blue, interpolation='none')
+plt.imshow(green1, interpolation='none')
+plt.imshow(green2, interpolation='none')
+plt.imshow(red, interpolation='none')
 plt.show()
 
 # At this point we now have the raw Bayer data with the correct values
