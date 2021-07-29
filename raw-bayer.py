@@ -23,6 +23,9 @@ with picamera.PiCamera() as camera:
     ver = {
         'RP_ov5647': 1,
         'RP_imx219': 2,
+        'RP_testc': 3,
+        'RP_imx477': 3,
+        "imx477": 3,
         }[camera.exif_tags['IFD0.Model']]
 
 # Extract the raw Bayer data from the end of the stream, check the
@@ -31,6 +34,8 @@ with picamera.PiCamera() as camera:
 offset = {
     1: 6404096,
     2: 10270208,
+    3: 18711040,
+    4: 4751360, #not sure for which camera this is
     }[ver]
 data = stream.getvalue()[-offset:]
 assert data[:4] == 'BRCM'
@@ -51,6 +56,8 @@ data = np.fromstring(data, dtype=np.uint8)
 reshape, crop = {
     1: ((1952, 3264), (1944, 3240)),
     2: ((2480, 4128), (2464, 4100)),
+    3: ((3056, 6112), (3040, 6084)),
+    4: ((1536, 3072), (1520, 3042)),
     }[ver]
 data = data.reshape(reshape)[:crop[0], :crop[1]]
 
@@ -66,10 +73,23 @@ data = data.reshape(reshape)[:crop[0], :crop[1]]
 # 2-bits and unpack the low-order bits from every 5th byte in each row,
 # then remove the columns containing the packed bits
 
-data = data.astype(np.uint16) << 2
-for byte in range(4):
-    data[:, byte::5] |= ((data[:, 4::5] >> ((4 - byte) * 2)) & 0b11)
-data = np.delete(data, np.s_[4::5], 1)
+# modified with https://github.com/schoolpost/PiDNG/blob/master/pidng/core.py
+if ver < 3:
+    data = data.astype(np.uint16) << 2
+    for byte in range(4):
+        data[:, byte::5] |= (
+            (data[:, 4::5] >> ((4 - byte) * 2)) & 0b11)
+    data = np.delete(data, np.s_[4::5], 1)
+else:
+    data = data.astype(np.uint16)
+    shape = data.shape
+    unpacked_data = np.zeros(
+        (shape[0], int(shape[1] / 3 * 2)), dtype=np.uint16)
+    unpacked_data[:, ::2] = (data[:, ::3] << 4) + \
+        (data[:, 2::3] & 0x0F)
+    unpacked_data[:, 1::2] = (
+        data[:, 1::3] << 4) + ((data[:, 2::3] >> 4) & 0x0F)
+    data = unpacked_data
 
 # Now to split the data up into its red, green, and blue components. The
 # Bayer pattern of the OV5647 sensor is BGGR. In other words the first
@@ -89,6 +109,11 @@ rgb[1::2, 0::2, 0] = data[1::2, 0::2] # Red
 rgb[0::2, 0::2, 1] = data[0::2, 0::2] # Green
 rgb[1::2, 1::2, 1] = data[1::2, 1::2] # Green
 rgb[0::2, 1::2, 2] = data[0::2, 1::2] # Blue
+
+print(f"red: {rgb[1::2, 0::2, 0]}")
+print(f"green1: {rgb[0::2, 0::2, 1]}")
+print(f"green1: {rgb[1::2, 1::2, 1]}")
+print(f"blue: {rgb[0::2, 1::2, 2]}")
 
 # At this point we now have the raw Bayer data with the correct values
 # and colors but the data still requires de-mosaicing and
