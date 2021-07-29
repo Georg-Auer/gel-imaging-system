@@ -129,6 +129,7 @@ if ver < 3:
             (data[:, 4::5] >> ((4 - byte) * 2)) & 0b11)
     data = np.delete(data, np.s_[4::5], 1)
 else:
+    print("version >= 3")
     data = data.astype(np.uint16)
     shape = data.shape
     unpacked_data = np.zeros(
@@ -186,7 +187,11 @@ print(np.sum(blue))
 print(np.sum(green1, axis=0))
 print(np.sum(green2, axis=1))
 print(np.sum(red, axis=0))
-import matplotlib
+
+import matplotlib.pyplot as plt
+
+plt.imshow(blue, interpolation='none')
+plt.show()
 
 # At this point we now have the raw Bayer data with the correct values
 # and colors but the data still requires de-mosaicing and
