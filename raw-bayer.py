@@ -164,55 +164,31 @@ green1 = rgb[0::2, 0::2, 1]
 green2 = rgb[1::2, 1::2, 1]
 blue = rgb[0::2, 1::2, 2]
 
-# print(f"red: {rgb[1::2, 0::2, 0]}")
-# print(f"green1: {rgb[0::2, 0::2, 1]}")
-# print(f"green1: {rgb[1::2, 1::2, 1]}")
-# print(f"blue: {rgb[0::2, 1::2, 2]}")
-print(f"red: {red}")
-print(f"green1: {green1}")
-print(f"green2: {green2}")
-print(f"blue: {blue}")
+# print(f"red: {red}")
+# print(f"green1: {green1}")
+# print(f"green2: {green2}")
+# print(f"blue: {blue}")
 print(header._fields_)
 print(header.width)
 print(header.height)
 print(f"bayer order: {header.bayer_order}")
-print(type(blue))
-print(blue.shape)
-print(green1.shape)
-print(green2.shape)
-print(red.shape)
-print(np.sum(blue, axis=0))
-print(np.sum(blue, axis=1))
-print(np.sum(blue))
-print(np.sum(green1, axis=0))
-print(np.sum(green2, axis=1))
-print(np.sum(red, axis=0))
+
+# print(type(blue))
+# print(blue.shape)
+# print(green1.shape)
+# print(green2.shape)
+# print(red.shape)
+
+# print(np.sum(blue, axis=0))
+# print(np.sum(blue, axis=1))
+# print(np.sum(blue))
+# print(np.sum(green1, axis=0))
+# print(np.sum(green2, axis=1))
+# print(np.sum(red, axis=0))
 
 import matplotlib.pyplot as plt
 
-
-# fig = plt.figure(figsize=(2, 2))
-# fig.add_subplot(0, 0, i)
-# plt.imshow(blue, interpolation='none')
-# fig.add_subplot(0, 1, i)
-# plt.imshow(green1, interpolation='none')
-# fig.add_subplot(1, 0, i)
-# plt.imshow(green2, interpolation='none')
-# fig.add_subplot(1, 1, i)
-# plt.imshow(red, interpolation='none')
-# plt.show()
-
-
-# plt.figure()
-#subplot(r,c) provide the no. of rows and columns
 f, axarr = plt.subplots(2,2) 
-
-# use the created array to output your multiple images. In this case I have stacked 4 images vertically
-# axarr[0].imshow(blue)
-# axarr[1].imshow(green1)
-# axarr[2].imshow(green2)
-# axarr[3].imshow(red)
-# plt.show()
 
 axarr[0, 0].imshow(blue)
 axarr[0, 0].set_title('blue')
