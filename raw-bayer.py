@@ -164,6 +164,17 @@ green1 = rgb[0::2, 0::2, 1]
 green2 = rgb[1::2, 1::2, 1]
 blue = rgb[0::2, 1::2, 2]
 
+print(np.amax(rgb))
+print(np.amax(red))
+print(np.amax(green1))
+print(np.amax(green2))
+print(np.amax(blue))
+# np.amax(rgb)
+# np.amax(red)
+# np.amax(green1)
+# np.amax(green2)
+# np.amax(blue)
+
 # print(f"red: {red}")
 # print(f"green1: {green1}")
 # print(f"green2: {green2}")
