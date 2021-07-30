@@ -16,8 +16,8 @@ from numpy.lib.stride_tricks import as_strided
 
 stream = io.BytesIO()
 # https://picamera.readthedocs.io/en/release-1.13/fov.html#sensor-modes
-# with picamera.PiCamera(sensor_mode=4) as camera:
-with picamera.PiCamera() as camera:
+with picamera.PiCamera(sensor_mode=4) as camera:
+# with picamera.PiCamera() as camera:
 
     # optional: set camera parameters
     # camera.resolution = (64,64)
