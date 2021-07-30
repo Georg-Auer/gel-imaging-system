@@ -220,7 +220,7 @@ axarr[0, 1].imshow(green1, cmap='gray', vmin=0, vmax=bitrate,interpolation='none
 axarr[0, 1].set_title('green1')
 # axarr[1, 0].imshow(green2, cmap='gray', vmin=0, vmax=bitrate,interpolation='none')
 # axarr[1, 0].set_title('green2')
-axarr[1, 0].imshow(rgb, cmap='gray', vmin=0, vmax=bitrate,interpolation='none')
+axarr[1, 0].imshow(rgb, interpolation='none')
 axarr[1, 0].set_title('rgb')
 axarr[1, 1].imshow(red, cmap='gray', vmin=0, vmax=bitrate,interpolation='none')
 axarr[1, 1].set_title('red')
