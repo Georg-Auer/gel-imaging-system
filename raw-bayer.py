@@ -225,6 +225,7 @@ plt.show()
 
 import cv2
 # cv2.imwrite('color_img.jpg', rgb)
+print(red.shape())
 img2 = cv2.merge([red,green1,blue])
 cv2.imwrite('color_img.jpg', img2)
 
