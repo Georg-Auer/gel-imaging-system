@@ -233,13 +233,13 @@ print(green2.shape)
 # https://android.googlesource.com/platform/cts/+/master/apps/CameraITS/pymodules/its/image.py
 img2 = cv2.merge([red,green1,blue])
 
-norm_image = cv2.normalize(img2, 0, 1023, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
+norm_image = cv2.normalize(img2, 0, 255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
 
 
-cv2.imwrite('red.jpg', cv2.normalize(red, 0, 1023, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F))
-cv2.imwrite('blue.jpg', cv2.normalize(blue, 0, 1023, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F))
-cv2.imwrite('green1.jpg', cv2.normalize(green1, 0, 1023, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F))
-cv2.imwrite('green2.jpg', cv2.normalize(green2, 0, 1023, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F))
+cv2.imwrite('red.jpg', cv2.normalize(red, 0, 255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F))
+cv2.imwrite('blue.jpg', cv2.normalize(blue, 0, 255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F))
+cv2.imwrite('green1.jpg', cv2.normalize(green1, 0, 255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F))
+cv2.imwrite('green2.jpg', cv2.normalize(green2, 0, 255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F))
 # cv2.imwrite('red.jpg', red)
 # cv2.imwrite('blue.jpg', blue)
 # cv2.imwrite('green1.jpg', green1)
