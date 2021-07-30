@@ -18,7 +18,7 @@ stream = io.BytesIO()
 with picamera.PiCamera() as camera:
 
     # optional: set camera parameters
-    camera.resolution = (64,64)
+    # camera.resolution = (64,64)
     # camera.iso = 100
     # time.sleep(2)
     # # camera.framerate = 5
@@ -220,7 +220,8 @@ axarr[1, 0].imshow(rgb, norm=None, interpolation='none')
 axarr[1, 0].set_title('rgb')
 axarr[1, 1].imshow(red, cmap='gray', vmin=0, vmax=bitrate, interpolation='none')
 axarr[1, 1].set_title('red')
-
+import cv2
+cv2.imwrite('color_img.jpg', rgb)
 plt.show()
 
 # axarr[0, 0].imshow(green1, cmap='gray', vmin=0, vmax=1023)
