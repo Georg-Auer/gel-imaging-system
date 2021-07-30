@@ -220,9 +220,15 @@ axarr[1, 0].imshow(rgb, norm=None, interpolation='none')
 axarr[1, 0].set_title('rgb')
 axarr[1, 1].imshow(red, cmap='gray', vmin=0, vmax=bitrate, interpolation='none')
 axarr[1, 1].set_title('red')
-import cv2
-cv2.imwrite('color_img.jpg', rgb)
+
 plt.show()
+
+import cv2
+# cv2.imwrite('color_img.jpg', rgb)
+img2 = cv2.merge([red,green1,blue])
+cv2.imwrite('color_img.jpg', img2)
+
+
 
 # axarr[0, 0].imshow(green1, cmap='gray', vmin=0, vmax=1023)
 # axarr[0, 0].set_title('green1')
