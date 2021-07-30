@@ -229,8 +229,13 @@ print(red.shape)
 print(blue.shape)
 print(green1.shape)
 print(green2.shape)
+
+# https://android.googlesource.com/platform/cts/+/master/apps/CameraITS/pymodules/its/image.py
 img2 = cv2.merge([red,green1,blue])
-cv2.imwrite('color_img.jpg', img2)
+
+norm_image = cv2.normalize(img2, None, alpha=0, beta=1, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
+
+cv2.imwrite('color_img.jpg', norm_image)
 
 
 
