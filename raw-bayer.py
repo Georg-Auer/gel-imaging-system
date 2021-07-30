@@ -16,7 +16,8 @@ from numpy.lib.stride_tricks import as_strided
 
 stream = io.BytesIO()
 # https://picamera.readthedocs.io/en/release-1.13/fov.html#sensor-modes
-with picamera.PiCamera(sensor_mode=7) as camera:
+# with picamera.PiCamera(sensor_mode=4) as camera:
+with picamera.PiCamera() as camera:
 
     # optional: set camera parameters
     # camera.resolution = (64,64)
@@ -278,3 +279,16 @@ cv2.imwrite('color_img.jpg', norm_image)
 # output = (output >> 2).astype(np.uint8)
 # with open('image.data', 'wb') as f:
 #     output.tofile(f)
+
+
+# mode	max. source pixels	aspect ratio	frame rates	FOV	binning/scaling	native bit-depth	applications
+# 0	(auto)	
+# 1	2028x1080	169/90	0.1 - 50fps	partial	2x2 binned	12-bit	“Full HD” video (1080p)
+# 1920x1080p30 (slightly more narrow FOV)
+# 1920x1008p30 (full width of sensor readout)
+# 2	2028x1520	4/3	0.1 - 42fps	full	2x2 binned	12-bit	4:3 video recording,
+# 1600x1200p30 in H.264
+# 1080x1080p50 in H.264
+# 3	4056x3040	4/3	0.005 - 10fps	full	none, full active resolution	12-bit	still images
+# timelapse video
+# 4	1012x760	4/3	50.1 - 120fps	full	4x4 scaled (skipped)	10-bit	record for slow-motion video
