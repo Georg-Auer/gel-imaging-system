@@ -169,8 +169,11 @@ blue = rgb[0::2, 1::2, 2]
 # print(np.amax(green1))
 # print(np.amax(green2))
 # print(np.amax(blue))
+# bitrate can be 12, but depending on the mode also 10
 bitrate = np.amax(rgb)
 print(bitrate)
+print(bin(bitrate+1))
+
 bitrate = np.sqrt(np.amax(rgb)+1)
 print(bitrate)
 
