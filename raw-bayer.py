@@ -62,7 +62,7 @@ offset = {
 
 
 data = stream.getvalue()[-offset:]
-assert data[:4] == 'BRCM'.encode("ascii")
+# assert data[:4] == 'BRCM'.encode("ascii")
 
 import ctypes
 class BroadcomRawHeader(ctypes.Structure):
