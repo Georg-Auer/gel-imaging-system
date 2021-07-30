@@ -214,10 +214,10 @@ axarr[0, 0].imshow(blue, cmap='gray', vmin=0, vmax=bitrate, interpolation='none'
 axarr[0, 0].set_title('blue')
 axarr[0, 1].imshow(green1, cmap='gray', vmin=0, vmax=bitrate, interpolation='none')
 axarr[0, 1].set_title('green1')
-# axarr[1, 0].imshow(green2, cmap='gray', vmin=0, vmax=bitrate, interpolation='none')
-# axarr[1, 0].set_title('green2')
-axarr[1, 0].imshow(rgb, norm=None, interpolation='none')
-axarr[1, 0].set_title('rgb')
+axarr[1, 0].imshow(green2, cmap='gray', vmin=0, vmax=bitrate, interpolation='none')
+axarr[1, 0].set_title('green2')
+# axarr[1, 0].imshow(rgb, norm=None, interpolation='none')
+# axarr[1, 0].set_title('rgb')
 axarr[1, 1].imshow(red, cmap='gray', vmin=0, vmax=bitrate, interpolation='none')
 axarr[1, 1].set_title('red')
 
@@ -233,8 +233,12 @@ print(green2.shape)
 # https://android.googlesource.com/platform/cts/+/master/apps/CameraITS/pymodules/its/image.py
 img2 = cv2.merge([red,green1,blue])
 
-norm_image = cv2.normalize(img2, None, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
+norm_image = cv2.normalize(img2, 0, 255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
 
+cv2.imwrite('red.jpg', red)
+cv2.imwrite('blue.jpg', blue)
+cv2.imwrite('green1.jpg', green1)
+cv2.imwrite('green2.jpg', green2)
 cv2.imwrite('color_img.jpg', norm_image)
 
 
