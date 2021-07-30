@@ -170,7 +170,7 @@ blue = rgb[0::2, 1::2, 2]
 # print(np.amax(green2))
 # print(np.amax(blue))
 # bitrate can be 12, but depending on the mode also 10
-bitrate = np.amax(rgb)
+bitrate = int(np.amax(rgb))
 print(bitrate)
 print(bin(bitrate))
 print(f"Image taken with bitrate: {bitrate.bit_length()}")
