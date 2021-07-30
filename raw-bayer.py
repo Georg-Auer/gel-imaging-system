@@ -164,12 +164,16 @@ green1 = rgb[0::2, 0::2, 1]
 green2 = rgb[1::2, 1::2, 1]
 blue = rgb[0::2, 1::2, 2]
 
-print(np.amax(rgb))
-print(np.amax(red))
-print(np.amax(green1))
-print(np.amax(green2))
-print(np.amax(blue))
-# np.amax(rgb)
+# print(np.amax(rgb))
+# print(np.amax(red))
+# print(np.amax(green1))
+# print(np.amax(green2))
+# print(np.amax(blue))
+bitrate = np.amax(rgb)
+print(bitrate)
+bitrate = np.roots(np.amax(rgb))
+print(bitrate)
+
 # np.amax(red)
 # np.amax(green1)
 # np.amax(green2)
