@@ -172,10 +172,8 @@ blue = rgb[0::2, 1::2, 2]
 # bitrate can be 12, but depending on the mode also 10
 bitrate = np.amax(rgb)
 print(bitrate)
-print(bin(bitrate+1))
-
-bitrate = np.sqrt(np.amax(rgb)+1)
-print(bitrate)
+print(bin(bitrate))
+print(f"Image taken with bitrate: {bitrate.bit_length()}")
 
 # np.amax(red)
 # np.amax(green1)
@@ -208,13 +206,13 @@ import matplotlib.pyplot as plt
 
 f, axarr = plt.subplots(2,2) 
 
-axarr[0, 0].imshow(blue, cmap='gray', vmin=0, vmax=4095,interpolation='none')
+axarr[0, 0].imshow(blue, cmap='gray', vmin=0, vmax=bitrate,interpolation='none')
 axarr[0, 0].set_title('blue')
-axarr[0, 1].imshow(green1, cmap='gray', vmin=0, vmax=4095,interpolation='none')
+axarr[0, 1].imshow(green1, cmap='gray', vmin=0, vmax=bitrate,interpolation='none')
 axarr[0, 1].set_title('green1')
-axarr[1, 0].imshow(green2, cmap='gray', vmin=0, vmax=4095,interpolation='none')
+axarr[1, 0].imshow(green2, cmap='gray', vmin=0, vmax=bitrate,interpolation='none')
 axarr[1, 0].set_title('green2')
-axarr[1, 1].imshow(red, cmap='gray', vmin=0, vmax=4095,interpolation='none')
+axarr[1, 1].imshow(red, cmap='gray', vmin=0, vmax=bitrate,interpolation='none')
 axarr[1, 1].set_title('red')
 
 # axarr[0, 0].imshow(green1, cmap='gray', vmin=0, vmax=1023)
