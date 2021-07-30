@@ -171,7 +171,7 @@ blue = rgb[0::2, 1::2, 2]
 # print(np.amax(blue))
 bitrate = np.amax(rgb)
 print(bitrate)
-bitrate = np.roots(np.amax(rgb))
+bitrate = np.sqrt(np.amax(rgb)+1)
 print(bitrate)
 
 # np.amax(red)
