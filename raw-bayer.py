@@ -18,7 +18,7 @@ stream = io.BytesIO()
 with picamera.PiCamera() as camera:
 
     # optional: set camera parameters
-    # camera.resolution = (2592,1944)
+    camera.resolution = (64,64)
     # camera.iso = 100
     # time.sleep(2)
     # # camera.framerate = 5
