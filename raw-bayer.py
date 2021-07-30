@@ -159,10 +159,18 @@ rgb[0::2, 0::2, 1] = data[0::2, 0::2] # Green
 rgb[1::2, 1::2, 1] = data[1::2, 1::2] # Green
 rgb[0::2, 1::2, 2] = data[0::2, 1::2] # Blue
 
-red = rgb[1::2, 0::2, 0]
-green1 = rgb[0::2, 0::2, 1]
-green2 = rgb[1::2, 1::2, 1]
-blue = rgb[0::2, 1::2, 2]
+# somehow, bayer pattern is not correct?
+# header.bayer_order = 2
+
+# red = rgb[1::2, 0::2, 0]
+# green1 = rgb[0::2, 0::2, 1]
+# green2 = rgb[1::2, 1::2, 1]
+# blue = rgb[0::2, 1::2, 2]
+
+green1 = rgb[1::2, 0::2, 0]
+blue = rgb[0::2, 0::2, 1]
+red = rgb[1::2, 1::2, 1]
+green2 = rgb[0::2, 1::2, 2]
 
 # print(np.amax(rgb))
 # print(np.amax(red))
