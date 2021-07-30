@@ -15,7 +15,8 @@ import numpy as np
 from numpy.lib.stride_tricks import as_strided
 
 stream = io.BytesIO()
-with picamera.PiCamera() as camera:
+# https://picamera.readthedocs.io/en/release-1.13/fov.html#sensor-modes
+with picamera.PiCamera(sensor_mode=7) as camera:
 
     # optional: set camera parameters
     # camera.resolution = (64,64)
@@ -234,7 +235,6 @@ print(green2.shape)
 img2 = cv2.merge([red,green1,blue])
 
 norm_image = cv2.normalize(img2, 0, 255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
-
 
 cv2.imwrite('red.jpg', cv2.normalize(red, 0, 255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F))
 cv2.imwrite('blue.jpg', cv2.normalize(blue, 0, 255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F))
